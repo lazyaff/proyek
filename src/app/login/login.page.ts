@@ -1,6 +1,7 @@
 import { AuthenticationService } from '../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -12,8 +13,15 @@ export class LoginPage implements OnInit {
   constructor(
     private authService: AuthenticationService,
     private router: Router,
+    public menuCtrl: MenuController
   ) { }
   ngOnInit() {
+  }
+  ionViewDidEnter() {
+    this.menuCtrl.enable(false);
+  }
+  ionViewWillLeave() {
+    this.menuCtrl.enable(true);
   }
   prosesLogin(): void {
     if (this.id_anggota != null && this.password != null) {
