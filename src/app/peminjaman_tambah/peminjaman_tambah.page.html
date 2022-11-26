@@ -1,0 +1,75 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Tambah Peminjaman</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        Tambah Mahasiswa
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-list lines="full">
+								
+    <ion-item>
+      <ion-label position="floating">Id Anggota</ion-label>
+      <ion-input required [(ngModel)]="id_anggota" placeholder="Masukkan Id Anggota" type="text">
+      </ion-input>
+    </ion-item>
+								
+    <ion-item>
+      <ion-label position="floating">Kd Buku</ion-label>
+      <ion-input required [(ngModel)]="kd_buku" placeholder="Masukkan Kd Buku" type="text">
+      </ion-input>
+    </ion-item>
+								
+    <ion-item>
+      <ion-label position="floating">Tanggal Peminjaman</ion-label>
+      <ion-input required [(ngModel)]="tanggal_peminjaman" placeholder="Masukkan Tanggal Peminjaman" type="text">
+      </ion-input>
+    </ion-item>
+								
+    <ion-item>
+      <ion-label position="floating">Batas Pengembalian</ion-label>
+      <ion-input required [(ngModel)]="batas_pengembalian" placeholder="Masukkan Batas Pengembalian" type="text">
+      </ion-input>
+    </ion-item>
+								
+    <ion-item>
+      <ion-label position="floating">Tanggal Pengembalian</ion-label>
+      <ion-input required [(ngModel)]="tanggal_pengembalian" placeholder="Masukkan Tanggal Pengembalian" type="text">
+      </ion-input>
+    </ion-item>
+								
+    <ion-item>
+      <ion-label position="floating">Status Pengembalian</ion-label>
+      <ion-input required [(ngModel)]="status_pengembalian" placeholder="Masukkan Status Pengembalian" type="text">
+      </ion-input>
+    </ion-item>
+								
+    <ion-item>
+      <ion-label position="floating">Denda</ion-label>
+      <ion-input required [(ngModel)]="denda" placeholder="Masukkan Denda" type="text">
+      </ion-input>
+    </ion-item>
+								
+    <ion-item>
+      <ion-label position="floating">Status Denda</ion-label>
+      <ion-input required [(ngModel)]="status_denda" placeholder="Masukkan Status Denda" type="text">
+      </ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="button" (click)="addPeminjaman()" color="primary" shape="full" expand="block">Tambah Peminjaman
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+</ion-content>

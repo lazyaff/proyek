@@ -1,0 +1,69 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Tambah Buku</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        Tambah Mahasiswa
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-list lines="full">
+								
+    <ion-item>
+      <ion-label position="floating">Cover</ion-label>
+      <ion-input required [(ngModel)]="cover" placeholder="Masukkan Cover" type="text">
+      </ion-input>
+    </ion-item>
+								
+    <ion-item>
+      <ion-label position="floating">Judul</ion-label>
+      <ion-input required [(ngModel)]="judul" placeholder="Masukkan Judul" type="text">
+      </ion-input>
+    </ion-item>
+								
+    <ion-item>
+      <ion-label position="floating">Pengarang</ion-label>
+      <ion-input required [(ngModel)]="pengarang" placeholder="Masukkan Pengarang" type="text">
+      </ion-input>
+    </ion-item>
+								
+    <ion-item>
+      <ion-label position="floating">Penerbit</ion-label>
+      <ion-input required [(ngModel)]="penerbit" placeholder="Masukkan Penerbit" type="text">
+      </ion-input>
+    </ion-item>
+								
+    <ion-item>
+      <ion-label position="floating">Kategori</ion-label>
+      <ion-input required [(ngModel)]="kategori" placeholder="Masukkan Kategori" type="text">
+      </ion-input>
+    </ion-item>
+								
+    <ion-item>
+      <ion-label position="floating">Lokasi</ion-label>
+      <ion-input required [(ngModel)]="lokasi" placeholder="Masukkan Lokasi" type="text">
+      </ion-input>
+    </ion-item>
+								
+    <ion-item>
+      <ion-label position="floating">Ketersediaan</ion-label>
+      <ion-input required [(ngModel)]="ketersediaan" placeholder="Masukkan Ketersediaan" type="text">
+      </ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="button" (click)="addBuku()" color="primary" shape="full" expand="block">Tambah Buku
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+</ion-content>
