@@ -37,7 +37,7 @@ export class PeminjamanEditPage implements OnInit {
     this._apiService.lihat(id, '/lihatPeminjaman.php?id_peminjaman=').subscribe({
       next: (hasil: any) => {
         console.log('sukses', hasil);
-        let peminjaman = hasil; 
+        let peminjaman = hasil;
 								 this.id_anggota= peminjaman.id_anggota;
 								 this.kd_buku= peminjaman.kd_buku;
 								 this.tanggal_peminjaman= peminjaman.tanggal_peminjaman;
@@ -87,7 +87,7 @@ export class PeminjamanEditPage implements OnInit {
       })
   }
 
- 
+
 
 }
 

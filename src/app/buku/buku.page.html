@@ -30,17 +30,18 @@
       <ion-item>
         <ion-label>
           {{item.kd_buku}}
-          <p>{{item.cover}}</p>
+          <ion-img src="../../assets/cover/{{item.cover}}"></ion-img>
           <p>{{item.judul}}</p>
           <p>{{item.pengarang}}</p>
           <p>{{item.penerbit}}</p>
           <p>{{item.kategori}}</p>
           <p>{{item.lokasi}}</p>
           <p>{{item.ketersediaan}}</p>
-        </ion-label>
-        <ion-button color="primary" slot="end" [routerLink]="['/buku_edit/',item.kd_buku]"
+          <ion-button color="primary" slot="end" [routerLink]="['/buku_edit/',item.kd_buku]"
           routerLinkActive="router-link-active">Edit</ion-button>
         <ion-button color="danger" slot="end" (click)="deleteBuku(item.kd_buku)">Hapus</ion-button>
+        </ion-label>
+
       </ion-item>
     </ion-card>
 

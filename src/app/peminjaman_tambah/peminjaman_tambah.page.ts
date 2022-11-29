@@ -9,52 +9,72 @@ import { ApiService } from '../api.service';
 })
 export class PeminjamanTambahPage implements OnInit {
   id_peminjaman: any;
-   
-								id_anggota: any;
-								kd_buku: any;
-								tanggal_peminjaman: any;
-								batas_pengembalian: any;
-								tanggal_pengembalian: any;
-								status_pengembalian: any;
-								denda: any;
-								status_denda: any;
+  id_anggota: any;
+  kd_buku: any;
+  tanggal_peminjaman: any = new Date();
+  batas_pengembalian: any;
+  tanggal_pengembalian: any;
+  status_pengembalian: any;
+  denda: any;
+  status_denda: any;
+  anggota: any[] = [];
+  buku: any[] = [];
   constructor(
     private router: Router,
     public _apiService: ApiService,
 
-  ) { }
+  ) { this.getAnggota(), this.getBuku()}
 
   ngOnInit() {
+  }
+  getAnggota() {
+    this._apiService.tampil('tampilAnggota.php').subscribe({
+      next: (res: any) => {
+        console.log('sukses', res);
+        this.anggota = res;
+      },
+      error: (err:any) => {
+        console.log(err);
+      },
+    })
+  }
+  getBuku() {
+    this._apiService.tampil('tampilBuku.php').subscribe({
+      next: (res: any) => {
+        console.log('sukses', res);
+        this.buku = res;
+      },
+      error: (err: any) => {
+        console.log(err);
+      },
+    })
   }
 
   addPeminjaman() {
     let data = {
-								id_anggota: this.id_anggota,
-								kd_buku: this.kd_buku,
-								tanggal_peminjaman: this.tanggal_peminjaman,
-								batas_pengembalian: this.batas_pengembalian,
-								tanggal_pengembalian: this.tanggal_pengembalian,
-								status_pengembalian: this.status_pengembalian,
-								denda: this.denda,
-								status_denda: this.status_denda,
+      id_anggota: this.id_anggota,
+      kd_buku: this.kd_buku,
+      tanggal_peminjaman: this.tanggal_peminjaman,
+      status_pengembalian: 'Masih dipinjam',
     }
     this._apiService.tambah(data, '/tambahPeminjaman.php')
       .subscribe({
         next: (hasil: any) => {
           console.log(hasil);
           this.id_peminjaman = '';
-								 this.id_anggota='';
-								 this.kd_buku='';
-								 this.tanggal_peminjaman='';
-								 this.batas_pengembalian='';
-								 this.tanggal_pengembalian='';
-								 this.status_pengembalian='';
-								 this.denda='';
-								 this.status_denda='';
+          this.id_anggota = '';
+          this.kd_buku = '';
+          this.tanggal_peminjaman = '';
+          this.batas_pengembalian = '';
+          this.tanggal_pengembalian = '';
+          this.status_pengembalian = '';
+          this.denda = '';
+          this.status_denda = '';
           this._apiService.notif('berhasil input Peminjaman');
           this.router.navigateByUrl('/peminjaman');
         },
         error: (err: any) => {
+          console.log(err)
           this._apiService.notif('gagal input Peminjaman');
         }
       })

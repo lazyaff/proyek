@@ -9,14 +9,14 @@ import { ApiService } from '../api.service';
 })
 export class BukuTambahPage implements OnInit {
   kd_buku: any;
-   
-								cover: any;
-								judul: any;
-								pengarang: any;
-								penerbit: any;
-								kategori: any;
-								lokasi: any;
-								ketersediaan: any;
+
+  cover: any;
+  judul: any;
+  pengarang: any;
+  penerbit: any;
+  kategori: any;
+  lokasi: any;
+  ketersediaan: any;
   constructor(
     private router: Router,
     public _apiService: ApiService,
@@ -28,26 +28,26 @@ export class BukuTambahPage implements OnInit {
 
   addBuku() {
     let data = {
-								cover: this.cover,
-								judul: this.judul,
-								pengarang: this.pengarang,
-								penerbit: this.penerbit,
-								kategori: this.kategori,
-								lokasi: this.lokasi,
-								ketersediaan: this.ketersediaan,
+      cover: this.cover,
+      judul: this.judul,
+      pengarang: this.pengarang,
+      penerbit: this.penerbit,
+      kategori: this.kategori,
+      lokasi: this.lokasi,
+      ketersediaan: this.ketersediaan,
     }
     this._apiService.tambah(data, '/tambahBuku.php')
       .subscribe({
         next: (hasil: any) => {
           console.log(hasil);
           this.kd_buku = '';
-								 this.cover='';
-								 this.judul='';
-								 this.pengarang='';
-								 this.penerbit='';
-								 this.kategori='';
-								 this.lokasi='';
-								 this.ketersediaan='';
+          this.cover = '';
+          this.judul = '';
+          this.pengarang = '';
+          this.penerbit = '';
+          this.kategori = '';
+          this.lokasi = '';
+          this.ketersediaan = '';
           this._apiService.notif('berhasil input Buku');
           this.router.navigateByUrl('/buku');
         },

@@ -9,16 +9,12 @@ $pesan = [];
 $id_anggota=trim($data['id_anggota']);
 $kd_buku=trim($data['kd_buku']);
 $tanggal_peminjaman=trim($data['tanggal_peminjaman']);
-$batas_pengembalian=trim($data['batas_pengembalian']);
-$tanggal_pengembalian=trim($data['tanggal_pengembalian']);
+$batas_pengembalian=date('Y-m-d', strtotime("+7 day", strtotime($tanggal_peminjaman)));
 $status_pengembalian=trim($data['status_pengembalian']);
-$denda=trim($data['denda']);
-$status_denda=trim($data['status_denda']);
 
-if($id_anggota!='' and $kd_buku!='' and $tanggal_peminjaman!='' and $batas_pengembalian!='' and $tanggal_pengembalian!='' and $status_pengembalian!='' and $denda!='' and $status_denda!=''){
-$query = mysqli_query($koneksi,"insert into peminjaman(id_anggota,kd_buku,tanggal_peminjaman,batas_pengembalian,tanggal_pengembalian,status_pengembalian,denda,status_denda) values('$id_anggota','$kd_buku','$tanggal_peminjaman','$batas_pengembalian','$tanggal_pengembalian','$status_pengembalian','$denda','$status_denda')");
+$query = mysqli_query($koneksi,"insert into peminjaman(id_anggota,kd_buku,tanggal_peminjaman,batas_pengembalian,tanggal_pengembalian,status_pengembalian,denda,status_denda) values('$id_anggota','$kd_buku','$tanggal_peminjaman','$batas_pengembalian',NULL,'$status_pengembalian',NULL,NULL)");
 
-}
+
 
 echo json_encode($pesan);
 echo mysqli_error($koneksi);

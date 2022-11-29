@@ -29,19 +29,20 @@
     <ion-card *ngFor="let item of lists">
       <ion-item>
         <ion-label>
-         {{item.id_peminjaman}}
-								<p>{{item.id_anggota}}</p>
-								<p>{{item.kd_buku}}</p>
-								<p>{{item.tanggal_peminjaman}}</p>
-								<p>{{item.batas_pengembalian}}</p>
-								<p>{{item.tanggal_pengembalian}}</p>
-								<p>{{item.status_pengembalian}}</p>
-								<p>{{item.denda}}</p>
-								<p>{{item.status_denda}}</p>
+          {{item.id_peminjaman}}
+          <p>{{item.nama}}</p>
+          <p>{{item.judul}}</p>
+          <p>{{item.tanggal_peminjaman}}</p>
+          <p>{{item.batas_pengembalian}}</p>
+          <p>{{item.tanggal_pengembalian}}</p>
+          <p>{{item.status_pengembalian}}</p>
+          <p>{{item.denda}}</p>
+          <p>{{item.status_denda}}</p>
+          <ion-button color="primary" slot="end" [routerLink]="['/peminjaman_edit/',item.id_peminjaman]"
+            routerLinkActive="router-link-active">Edit</ion-button>
+          <ion-button color="danger" slot="end" (click)="deletePeminjaman(item.id_peminjaman)">Hapus</ion-button>
+          <ion-button slot="end" (click)="kembalikanPeminjaman(item.id_peminjaman)">Kembalikan</ion-button>
         </ion-label>
-        <ion-button color="primary" slot="end" [routerLink]="['/peminjaman_edit/',item.id_peminjaman]"
-          routerLinkActive="router-link-active">Edit</ion-button>
-        <ion-button color="danger" slot="end" (click)="deletePeminjaman(item.id_peminjaman)">Hapus</ion-button>
       </ion-item>
     </ion-card>
 

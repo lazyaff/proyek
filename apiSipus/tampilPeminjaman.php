@@ -1,9 +1,9 @@
 
-<?php 
+<?php
 require 'koneksi.php';
 $data = [];
 $urutan_list = 1;
-$query = mysqli_query($koneksi,'select * from peminjaman');
+$query = mysqli_query($koneksi,'select * from peminjaman join anggota on peminjaman.id_anggota=anggota.id_anggota join buku on peminjaman.kd_buku=buku.kd_buku');
 while ($row = mysqli_fetch_object($query)) {
     $row->urutan_list = $urutan_list++;
 	$data[] = $row;

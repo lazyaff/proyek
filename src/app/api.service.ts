@@ -17,7 +17,7 @@ export class ApiService {
 
   //link API
   apiURL() {
-    return 'http://localhost/apiSipus';
+    return 'http://localhost/SIPUS/apiSipus';
   }
 
   tambah(data: any, endpoint: string) {
@@ -30,6 +30,11 @@ export class ApiService {
 
   tampil(endpoint: string): Observable<any> {
     return this.http.get(this.apiURL() + '/' + endpoint);
+  }
+
+  kembalikan(id: any, endpoint: string) {
+    console.log(id);
+    return this.http.delete(this.apiURL() + '/' + endpoint + '' + id);
   }
 
   hapus(id: any, endpoint: string) {
