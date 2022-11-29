@@ -35,7 +35,7 @@ export class AnggotaEditPage implements OnInit {
     this._apiService.lihat(id, '/lihatAnggota.php?id_anggota=').subscribe({
       next: (hasil: any) => {
         console.log('sukses', hasil);
-        let anggota = hasil; 
+        let anggota = hasil;
 								 this.nik= anggota.nik;
 								 this.nama= anggota.nama;
 								 this.alamat= anggota.alamat;
@@ -74,12 +74,14 @@ export class AnggotaEditPage implements OnInit {
           this.router.navigateByUrl('/anggota');
         },
         error: (err: any) => {
+          console.log(err);
+          console.log(data);
           this._apiService.notif('gagal edit Anggota');
         }
       })
   }
 
- 
+
 
 }
 

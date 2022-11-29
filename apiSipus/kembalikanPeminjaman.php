@@ -9,6 +9,7 @@ $pesan = [];
 $id_peminjaman = $_GET['id_peminjaman'];
 $query = mysqli_query($koneksi, "select * from peminjaman where id_peminjaman ='$id_peminjaman'");
 $row = mysqli_fetch_array($query);
+if($row['status_pengembalian'] == trim('Masih dipinjam')){
   $batas_pengembalian = $row['batas_pengembalian'];
   $tanggal_pengembalian = date("Y-m-d");
   $status_pengembalian = 'Sudah kembali';
@@ -24,6 +25,13 @@ $row = mysqli_fetch_array($query);
 
 $query = mysqli_query($koneksi, "update peminjaman set tanggal_pengembalian='$tanggal_pengembalian',status_pengembalian='$status_pengembalian',denda='$denda',status_denda='$status_denda' where id_peminjaman='$id_peminjaman'");
 
+http_response_code(201);
+	$pesan['status'] = 'sukses';
+
+}else{
+  http_response_code(422);
+	$pesan['status'] = 'gagal';
+}
 echo json_encode($pesan);
 echo mysqli_error($koneksi);
 

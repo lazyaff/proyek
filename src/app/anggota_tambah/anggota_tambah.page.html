@@ -17,37 +17,39 @@
     </ion-toolbar>
   </ion-header>
   <ion-list lines="full">
-								
+
     <ion-item>
       <ion-label position="floating">Nik</ion-label>
-      <ion-input required [(ngModel)]="nik" placeholder="Masukkan Nik" type="text">
+      <ion-input required [(ngModel)]="nik" placeholder="Masukkan Nik" type="number">
       </ion-input>
     </ion-item>
-								
+
     <ion-item>
       <ion-label position="floating">Nama</ion-label>
       <ion-input required [(ngModel)]="nama" placeholder="Masukkan Nama" type="text">
       </ion-input>
     </ion-item>
-								
+
     <ion-item>
       <ion-label position="floating">Alamat</ion-label>
       <ion-input required [(ngModel)]="alamat" placeholder="Masukkan Alamat" type="text">
       </ion-input>
     </ion-item>
-								
+
     <ion-item>
       <ion-label position="floating">Peran</ion-label>
-      <ion-input required [(ngModel)]="peran" placeholder="Masukkan Peran" type="text">
-      </ion-input>
+      <ion-select [(ngModel)]="peran" placeholder="Pilih Peran">
+        <ion-select-option value="Petugas">Petugas</ion-select-option>
+        <ion-select-option value="Anggota">Anggota</ion-select-option>
+      </ion-select>
     </ion-item>
-								
+
     <ion-item>
       <ion-label position="floating">No Telp</ion-label>
-      <ion-input required [(ngModel)]="no_telp" placeholder="Masukkan No Telp" type="text">
+      <ion-input required [(ngModel)]="no_telp" placeholder="Masukkan No Telp" type="tel">
       </ion-input>
     </ion-item>
-								
+
     <ion-item>
       <ion-label position="floating">Password</ion-label>
       <ion-input required [(ngModel)]="password" placeholder="Masukkan Password" type="text">

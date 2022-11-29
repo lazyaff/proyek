@@ -38,10 +38,11 @@
           <p>{{item.status_pengembalian}}</p>
           <p>{{item.denda}}</p>
           <p>{{item.status_denda}}</p>
-          <ion-button color="primary" slot="end" [routerLink]="['/peminjaman_edit/',item.id_peminjaman]"
-            routerLinkActive="router-link-active">Edit</ion-button>
+          <!-- <ion-button color="primary" slot="end" [routerLink]="['/peminjaman_edit/',item.id_peminjaman]"
+            routerLinkActive="router-link-active">Edit</ion-button> -->
           <ion-button color="danger" slot="end" (click)="deletePeminjaman(item.id_peminjaman)">Hapus</ion-button>
-          <ion-button slot="end" (click)="kembalikanPeminjaman(item.id_peminjaman)">Kembalikan</ion-button>
+          <ion-button color="success" (click)="kembalikanPeminjaman(item.id_peminjaman)">Kembalikan</ion-button>
+          <ion-button color="success" (click)="bayarkanDenda(item.id_peminjaman)">Bayar<br>Denda</ion-button>
         </ion-label>
       </ion-item>
     </ion-card>

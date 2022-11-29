@@ -29,13 +29,12 @@
     <ion-card *ngFor="let item of lists">
       <ion-item>
         <ion-label>
-         {{item.id_anggota}}
-								<p>{{item.nik}}</p>
-								<p>{{item.nama}}</p>
-								<p>{{item.alamat}}</p>
-								<p>{{item.peran}}</p>
-								<p>{{item.no_telp}}</p>
-								<p>{{item.password}}</p>
+          {{item.id_anggota}}
+          <p>{{item.nik}}</p>
+          <p>{{item.nama}}</p>
+          <p>{{item.alamat}}</p>
+          <p>{{item.peran}}</p>
+          <p>{{item.no_telp}}</p>
         </ion-label>
         <ion-button color="primary" slot="end" [routerLink]="['/anggota_edit/',item.id_anggota]"
           routerLinkActive="router-link-active">Edit</ion-button>

@@ -34,7 +34,12 @@ export class ApiService {
 
   kembalikan(id: any, endpoint: string) {
     console.log(id);
-    return this.http.delete(this.apiURL() + '/' + endpoint + '' + id);
+    return this.http.get(this.apiURL() + '/' + endpoint + '' + id);
+  }
+
+  bayarDenda(id: any, endpoint: string) {
+    console.log(id);
+    return this.http.get(this.apiURL() + '/' + endpoint + '' + id);
   }
 
   hapus(id: any, endpoint: string) {

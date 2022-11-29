@@ -15,7 +15,7 @@ $no_telp=trim($data['no_telp']);
 $password=trim($data['password']);
 
 if($nik!='' and $nama!='' and $alamat!='' and $peran!='' and $no_telp!='' and $password!=''){
-$query = mysqli_query($koneksi,"update anggota set nik='$nik',nama='$nama',alamat='$alamat',peran='$peran',no_telp='$no_telp',password='$password' where id_anggota='$id_anggota'");
+$query = mysqli_query($koneksi,"update anggota set nik='$nik',nama='$nama',alamat='$alamat',peran='$peran',no_telp='$no_telp',password=md5('$password') where id_anggota='$id_anggota'");
 }
 echo json_encode($pesan);
 echo mysqli_error($koneksi);

@@ -44,8 +44,12 @@
 
     <ion-item>
       <ion-label position="floating">Kategori</ion-label>
-      <ion-input required [(ngModel)]="kategori" placeholder="Masukkan Kategori" type="text">
-      </ion-input>
+      <ion-select [(ngModel)]="kategori" placeholder="Pilih Kategori">
+        <ion-select-option value="Fiksi">Fiksi</ion-select-option>
+        <ion-select-option value="Pengetahuan">Pengetahuan</ion-select-option>
+        <ion-select-option value="Sejarah">Sejarah</ion-select-option>
+        <ion-select-option value="Novel">Novel</ion-select-option>
+      </ion-select>
     </ion-item>
 
     <ion-item>
@@ -56,7 +60,7 @@
 
     <ion-item>
       <ion-label position="floating">Ketersediaan</ion-label>
-      <ion-input required [(ngModel)]="ketersediaan" placeholder="Masukkan Ketersediaan" type="text">
+      <ion-input required [(ngModel)]="ketersediaan" placeholder="Masukkan Ketersediaan" type="number">
       </ion-input>
     </ion-item>
     <ion-row>
